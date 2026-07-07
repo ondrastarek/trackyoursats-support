@@ -13,8 +13,16 @@
       --rule: #e5e5ea;
       --card: #f7f7f8;
     }
+    :root[data-theme="dark"] {
+      --bg: #121214;
+      --fg: #ececef;
+      --muted: #9a9aa0;
+      --accent: #f7931a;
+      --rule: #2a2a2e;
+      --card: #1c1c1f;
+    }
     @media (prefers-color-scheme: dark) {
-      :root {
+      :root:not([data-theme="light"]) {
         --bg: #121214;
         --fg: #ececef;
         --muted: #9a9aa0;
@@ -23,6 +31,23 @@
         --card: #1c1c1f;
       }
     }
+    .theme-toggle {
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      background: var(--card);
+      color: var(--fg);
+      font-size: 17px;
+      line-height: 1;
+      cursor: pointer;
+      transition: border-color 0.15s ease;
+    }
+    .theme-toggle:hover { border-color: var(--accent); }
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
     body {
@@ -58,8 +83,19 @@
     .callout p { margin: 6px 0; }
     footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--rule); }
   </style>
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark' || theme === 'light') {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
 </head>
 <body>
+  <button class="theme-toggle" type="button" aria-label="Switch theme">🌙</button>
   <div class="wrap">
     <header>
       <h1>TrackYourSats — Support</h1>
@@ -133,5 +169,29 @@
       <p class="muted">TrackYourSats · Support · <a href="https://ondrejstarek.cz/trackyoursats-privacy-policy/">Privacy Policy</a></p>
     </footer>
   </div>
+  <script>
+    (function () {
+      var button = document.querySelector('.theme-toggle');
+      var media = window.matchMedia('(prefers-color-scheme: dark)');
+      function effectiveTheme() {
+        var override = document.documentElement.getAttribute('data-theme');
+        if (override === 'dark' || override === 'light') { return override; }
+        return media.matches ? 'dark' : 'light';
+      }
+      function renderIcon() {
+        var dark = effectiveTheme() === 'dark';
+        button.textContent = dark ? '☀️' : '🌙';
+        button.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+      }
+      button.addEventListener('click', function () {
+        var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (error) {}
+        renderIcon();
+      });
+      media.addEventListener('change', renderIcon);
+      renderIcon();
+    })();
+  </script>
 </body>
 </html>
