@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TrackYourSats — Support</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1c1c1e;
+      --muted: #6b6b70;
+      --accent: #f7931a; /* bitcoin orange */
+      --rule: #e5e5ea;
+      --card: #f7f7f8;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121214;
+        --fg: #ececef;
+        --muted: #9a9aa0;
+        --accent: #f7931a;
+        --rule: #2a2a2e;
+        --card: #1c1c1f;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 0 20px;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 56px 0 96px; }
+    header { border-bottom: 1px solid var(--rule); padding-bottom: 24px; margin-bottom: 8px; }
+    h1 { font-size: 1.9rem; margin: 0 0 6px; letter-spacing: -0.02em; }
+    h2 {
+      font-size: 1.25rem; margin: 40px 0 12px; letter-spacing: -0.01em;
+      padding-top: 8px;
+    }
+    h3 { font-size: 1.02rem; margin: 24px 0 8px; }
+    p, li { color: var(--fg); }
+    .muted { color: var(--muted); font-size: 0.92rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { padding-left: 1.25em; }
+    li { margin: 6px 0; }
+    code { background: var(--card); padding: 1px 6px; border-radius: 5px; font-size: 0.85em; }
+    .callout {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin: 20px 0;
+    }
+    .callout p { margin: 6px 0; }
+    footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>TrackYourSats — Support</h1>
+      <p class="muted">Help and contact for the TrackYourSats iPhone app</p>
+    </header>
+
+    <div class="callout">
+      <p><strong>Need help or found a bug?</strong> Email
+      <a href="mailto:ondrastarek@gmail.com">ondrastarek@gmail.com</a> and include
+      your app version and iOS version (both shown in the App Store listing and
+      iOS Settings). We read every message.</p>
+    </div>
+
+    <h2>Contact</h2>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:ondrastarek@gmail.com">ondrastarek@gmail.com</a> — best for anything that needs a reply.</li>
+      <li><strong>In-app:</strong> Profile → Support → <em>Report issue</em>. This sends
+        anonymous feedback — we can't reply to it, so use email if you want an answer.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>Where is my data stored?</h3>
+    <p>
+      On your device, and — only if you chose <em>Sync With iCloud</em> — in your own
+      private iCloud account. The developer has no access to it. See the
+      <a href="https://ondrejstarek.cz/trackyoursats-privacy-policy/">privacy policy</a>
+      for details.
+    </p>
+
+    <h3>How do I turn iCloud sync on or off?</h3>
+    <p>
+      Go to <strong>Profile → Data Sync</strong>. You can start syncing to iCloud, or
+      remove the iCloud copy and keep everything on this device only.
+    </p>
+
+    <h3>Which CSV files can I import?</h3>
+    <p>
+      Export files from <strong>Anycoin</strong>, <strong>Delta</strong>, and
+      <strong>Binance</strong>. Only Bitcoin activity is imported — rows for other
+      assets are skipped and listed in the import preview.
+    </p>
+
+    <h3>Do recurring buys purchase Bitcoin for me?</h3>
+    <p>
+      No. TrackYourSats never places trades, holds funds, or connects to your exchange
+      account. Recurring buy rules only record tracker-side entries for purchases you
+      make yourself, so your DCA history stays effortless to maintain.
+    </p>
+
+    <h3>Which currencies are supported?</h3>
+    <p>
+      Portfolio values can be shown in USD, EUR, or CZK. The live Bitcoin price comes
+      from Coinbase (BTC-USD) and is converted using current exchange rates.
+    </p>
+
+    <h3>How do I delete my data?</h3>
+    <p>
+      You can delete individual transactions and portfolios in the app, reset the
+      device's data from Profile → Data Sync, or delete the app. If iCloud sync was
+      on, <em>Remove iCloud Data</em> deletes the synced copy as well.
+    </p>
+
+    <h2>Privacy</h2>
+    <p>
+      TrackYourSats requires no account and collects no personal information. Read the
+      full <a href="https://ondrejstarek.cz/trackyoursats-privacy-policy/">privacy policy</a>.
+    </p>
+
+    <footer>
+      <p class="muted">TrackYourSats · Support · <a href="https://ondrejstarek.cz/trackyoursats-privacy-policy/">Privacy Policy</a></p>
+    </footer>
+  </div>
+</body>
+</html>
